@@ -3,14 +3,12 @@ import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react"; // Icon yang mirip WhatsApp
 import Image from "next/image";
 import ServiceCard from "./service-card";
+import ContactUsIllustration from "./ContactUsIllustration";
 
 // Placeholder images - ganti dengan path gambar Anda
-const doctorImage1 =
-  "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZG9jdG9yfGVufDB8fDB8fHww&auto=format&fit=crop&w=100&q=60";
-const doctorImage2 =
-  "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZG9jdG9yfGVufDB8fDB8fHww&auto=format&fit=crop&w=100&q=60";
-const clinicImage =
-  "https://images.unsplash.com/photo-1584515933487-779824d29358?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGNsaW5pYyUyMHdhaXRpbmclMjByb29tfGVufDB8fDB8fHww&auto=format&fit=crop&w=100&q=60";
+// const doctorImage1 = "/image/service/vector-1.png";
+// const doctorImage2 = "/image/service/vector-1.png";
+// const clinicImage = "/image/service/vector-1.png";
 
 interface serviceData {
   title: string;
@@ -57,12 +55,13 @@ export default function Service() {
       link: "#service",
     },
   ];
+
   return (
-    <div className="w-full flex flex-col lg:px-28 justify-center">
+    <div className="w-full flex flex-col lg:px-28 justify-center p-4">
       {/* Header */}
-      <div className="flex">
+      <div className="">
         {/* Header Icon */}
-        <div className="relative">
+        <div className="relative hidden lg:flex">
           <Image
             src="/image/service/vector-1.png"
             alt="Layer 1"
@@ -77,16 +76,18 @@ export default function Service() {
             className="absolute z-10"
           />
         </div>
-        <div>
-          <h3>Register to Our Services</h3>
-          <p>
+        <div className="flex flex-col gap-[20px]">
+          <h3 className="font-semibold text-[22px]">
+            Register to Our Services
+          </h3>
+          <p className="text-[12px] text-[#447759] mb-8 dark:text-gray-400">
             Our services are trusted and certified from the best doctors in
             town. Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </p>
         </div>
       </div>
       {/* Content */}
-      <div className="flex flex-wrap justify-center lg:grid lg:gap-4 lg:grid-cols-3 py-5">
+      <div className="flex flex-wrap justify-center lg:grid gap-[26px] lg:grid-cols-3 py-5">
         {services.map((data, i) => (
           <ServiceCard
             key={i}
@@ -112,67 +113,7 @@ function SkinSolutionCard() {
         </h2>
 
         <div className="relative mb-10 w-full h-64 md:h-72 flex items-center justify-center">
-          {/* Decorative dashed circles */}
-          {/* Lingkaran besar di tengah bawah */}
-          <div
-            className="absolute w-48 h-48 md:w-56 md:h-56 border-2 border-dashed border-[#cde0d5] rounded-full"
-            style={{ top: "15%", left: "50%", transform: "translate(-50%, 0)" }}
-          />
-          {/* Lingkaran kiri atas */}
-          <div
-            className="absolute w-36 h-36 md:w-40 md:h-40 border-2 border-dashed border-[#cde0d5] rounded-full"
-            style={{
-              top: "0%",
-              left: "20%",
-              transform: "translate(-50%, -20%)",
-            }}
-          />
-          {/* Lingkaran kanan atas */}
-          <div
-            className="absolute w-36 h-36 md:w-40 md:h-40 border-2 border-dashed border-[#cde0d5] rounded-full"
-            style={{
-              top: "0%",
-              right: "20%",
-              transform: "translate(50%, -20%)",
-            }}
-          />
-
-          {/* Images - pastikan path gambar benar dan ukurannya sesuai */}
-          <div className="absolute top-[10%] left-[15%] transform -translate-x-1/2 -translate-y-1/2 z-10">
-            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-4 border-white shadow-md">
-              <Image
-                src={doctorImage1}
-                alt="Doctor consulting patient"
-                width={96}
-                height={96}
-                className="object-cover w-full h-full"
-              />
-            </div>
-          </div>
-
-          <div className="absolute top-[10%] right-[15%] transform translate-x-1/2 -translate-y-1/2 z-10">
-            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-4 border-white shadow-md">
-              <Image
-                src={doctorImage2}
-                alt="Doctor writing on clipboard"
-                width={96}
-                height={96}
-                className="object-cover w-full h-full"
-              />
-            </div>
-          </div>
-
-          <div className="absolute bottom-[5%] left-1/2 transform -translate-x-1/2 translate-y-1/2 z-10">
-            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-4 border-white shadow-md">
-              <Image
-                src={clinicImage}
-                alt="Clinic waiting room"
-                width={96}
-                height={96}
-                className="object-cover w-full h-full"
-              />
-            </div>
-          </div>
+          <ContactUsIllustration />
         </div>
 
         <Button className="w-full max-w-xs bg-[#547d5e] hover:bg-[#4a6b53] text-white font-semibold py-3 px-6 rounded-full text-lg flex items-center justify-center gap-2 shadow-md">
@@ -183,3 +124,75 @@ function SkinSolutionCard() {
     </Card>
   );
 }
+
+{
+  /* Decorative dashed circles */
+}
+{
+  /* Lingkaran besar di tengah bawah */
+}
+// <div
+//   className="absolute w-48 h-48 md:w-56 md:h-56 border-2 border-dashed border-[#cde0d5] rounded-full"
+//   style={{ top: "15%", left: "50%", transform: "translate(-50%, 0)" }}
+// />
+{
+  /* Lingkaran kiri atas */
+}
+// <div
+//   className="absolute w-36 h-36 md:w-40 md:h-40 border-2 border-dashed border-[#cde0d5] rounded-full"
+//   style={{
+//     top: "0%",
+//     left: "20%",
+//     transform: "translate(-50%, -20%)",
+//   }}
+// />
+{
+  /* Lingkaran kanan atas */
+}
+// <div
+//   className="absolute w-36 h-36 md:w-40 md:h-40 border-2 border-dashed border-[#cde0d5] rounded-full"
+//   style={{
+//     top: "0%",
+//     right: "20%",
+//     transform: "translate(50%, -20%)",
+//   }}
+// />
+
+{
+  /* Images - pastikan path gambar benar dan ukurannya sesuai */
+}
+// <div className="absolute top-[10%] left-[15%] transform -translate-x-1/2 -translate-y-1/2 z-10">
+//   <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-4 border-white shadow-md">
+//     <Image
+//       src={doctorImage1}
+//       alt="Doctor consulting patient"
+//       width={96}
+//       height={96}
+//       className="object-cover w-full h-full"
+//     />
+//   </div>
+// </div>
+
+// <div className="absolute top-[10%] right-[15%] transform translate-x-1/2 -translate-y-1/2 z-10">
+//   <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-4 border-white shadow-md">
+//     <Image
+//       src={doctorImage2}
+//       alt="Doctor writing on clipboard"
+//       width={96}
+//       height={96}
+//       className="object-cover w-full h-full"
+//     />
+//   </div>
+// </div>
+
+// <div className="absolute bottom-[5%] left-1/2 transform -translate-x-1/2 translate-y-1/2 z-10">
+//   <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-4 border-white shadow-md">
+//     <Image
+//       src={clinicImage}
+//       alt="Clinic waiting room"
+//       width={96}
+//       height={96}
+//       className="object-cover w-full h-full"
+//     />
+//   </div>
+// </div>
