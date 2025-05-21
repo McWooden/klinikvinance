@@ -14,7 +14,7 @@ import Image from "next/image";
 import { Separator } from "./ui/separator";
 import { cn } from "@/lib/utils";
 
-const logoPath = "/image/logo-rectangle.png";
+const logoPath = "/image/logo.png";
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -24,7 +24,7 @@ export default function Footer() {
         "w-full",
         "bg-[#2A3C30]",
         "text-gray-200",
-        "py-12 px-4 md:px-8 lg:px-16"
+        "py-12 px-4 lg:px-8 lg:px-16"
       )}
     >
       <div className="container mx-auto">
@@ -63,7 +63,7 @@ export default function Footer() {
                 <MessageCircle size={36} />
               </a>
             </div>
-            <div className="border space-y-6 lg:space-y-4 border-gray-500 rounded-md p-3 flex items-center space-x-2 w-full max-w-[280px] sm:max-w-xs">
+            <div className="border space-y-6 lg:space-y-4 border-gray-500 rounded-md p-3 flex items-center space-x-2 w-full max-w-[280px] lg:max-w-xs">
               <Award size={36} className="text-yellow-400 flex-shrink-0" />
               <span className="text-sm text-gray-300">
                 Indonesia's Leading Certified Clinic

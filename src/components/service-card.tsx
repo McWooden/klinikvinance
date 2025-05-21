@@ -20,16 +20,12 @@ export default function ServiceCard({
   reserveLink = "#", // Default link jika tidak disediakan
 }: ServiceCardProps) {
   return (
-    <div className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col h-full">
+    <div className="bg-white rounded-xl max-w-xs shadow-lg overflow-hidden flex flex-col h-full">
       {/* Bagian Gambar */}
-      <div className="relative w-full h-48 sm:h-56">
-        <Image
-          src={imageUrl}
-          alt={imageAlt}
-          layout="fill"
-          objectFit="cover"
-          // className="rounded-t-xl" // Tidak perlu jika parent sudah overflow-hidden
-        />
+      <div className="relative h-48 w-full">
+        <div>
+          <Image src={imageUrl} fill alt={imageAlt} className="w-full" />
+        </div>
       </div>
 
       {/* Bagian Konten Teks */}
@@ -42,7 +38,7 @@ export default function ServiceCard({
         <Button
           asChild={!!reserveLink} // Tombol akan menjadi <a> jika reserveLink ada
           variant="default" // Sesuaikan variant jika perlu
-          className="mt-auto w-full bg-[#4E8966] hover:bg-[#417f5a] text-white font-semibold rounded-full py-2.5 px-4 text-base transition-colors"
+          className="mt-auto w-full bg-[#4E8966] hover:bg-[#417f5a] text-white font-semibold rounded-full py-4 px-4 text-base transition-colors"
         >
           {reserveLink ? (
             <Link href={reserveLink}>
