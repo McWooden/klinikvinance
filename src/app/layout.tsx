@@ -8,13 +8,13 @@ import React from "react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Klinik Vanice",
+  title: "Venice Clinic",
   description:
-    "Klinik Vanice: Klinik kecantikan terpercaya untuk Rejuve Mate Your Life, Elevating Your Confidence. Menawarkan berbagai layanan dan produk kecantikan berkualitas.",
+    "Venice Clinic: Klinik kecantikan terpercaya untuk Rejuve Mate Your Life, Elevating Your Confidence. Menawarkan berbagai layanan dan produk kecantikan berkualitas.",
   openGraph: {
-    title: "Klinik Vanice",
+    title: "Venice Clinic",
     description:
-      "Klinik Vanice: Klinik kecantikan terpercaya untuk Rejuve Mate Your Life, Elevating Your Confidence. Menawarkan berbagai layanan dan produk kecantikan berkualitas.",
+      "Venice Clinic: Klinik kecantikan terpercaya untuk Rejuve Mate Your Life, Elevating Your Confidence. Menawarkan berbagai layanan dan produk kecantikan berkualitas.",
   },
 };
 
@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.className}>
       <body className="bg-[#F9FBFC]">
-        <Header />
+        {/* <Header /> */}
         {children}
         <Footer />
       </body>

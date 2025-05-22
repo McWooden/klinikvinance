@@ -1,6 +1,8 @@
 // components/sections/WhyChooseUs.tsx
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import React, { JSX } from "react";
+import { Verified } from "lucide-react";
 
 interface ImageTextCardProps {
   imagePath: string;
@@ -29,8 +31,8 @@ function ImageTextCard({
         <Image
           src={imagePath}
           alt={title}
-          width={600}
-          height={400}
+          width={1200}
+          height={800}
           className="rounded-xl w-full h-auto object-cover"
         />
       </div>
@@ -53,31 +55,30 @@ function ImageTextCard({
 export default function WhyChooseUs() {
   return (
     <section id="about-us" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold  mb-4">
+      <div className="container mx-auto px-4 lg:px-24 ">
+        <h2 className="text-3xl font-bold mb-4">
           Why Everybody Loves Venice Clinic?
         </h2>
-        <p className="text-gray-600  max-w-3xl mb-16">
-          We strive to set the highest standards in medical aesthetics. From the
-          moment you walk in, every detail of the experience is designed to be
-          exceptional.
+        <p className="text-gray-600 mb-16">
+          We make sure that every services come to life, Lorem ipsum dolor sit,
+          amet consectetur adipisicing elit. Velit harum, aliquam saepe itaque
+          pariatur debitis.
         </p>
-
         {/* Image kiri di desktop, image atas di mobile */}
         <ImageTextCard
-          imagePath="/image/image.png"
+          imagePath="/image/whychooseus/image-1.png"
           title="We Provide The Best Service"
-          description="lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
-          description2="lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
+          description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, soluta corrupti necessitatibus temporibus facilis ipsa totam animi assumenda quis impedit ducimus veritatis sapiente unde illo quia distinctio incidunt velit voluptas dolorum! Dolores, iste deserunt distinctio maiores asperiores alias!"
+          description2="Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam saepe reiciendis nulla a at quibusdam rem doloribus facilis harum! Beatae veniam nulla asperiores quibusdam!"
           reverse={false}
         />
 
         {/* Image kanan di desktop, image bawah di mobile */}
         <ImageTextCard
-          imagePath="/image/image-two.png"
-          title="Another Reason to Love Us"
-          description="lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
-          description2="lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
+          imagePath="/image/whychooseus/image-2.png"
+          title="We Provide The Best Facility"
+          description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, soluta corrupti necessitatibus temporibus facilis ipsa totam animi assumenda quis impedit ducimus veritatis sapiente unde illo quia distinctio incidunt velit voluptas dolorum! Dolores, iste deserunt distinctio maiores asperiores alias!"
+          description2="Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam saepe reiciendis nulla a at quibusdam rem doloribus facilis harum! Beatae veniam nulla asperiores quibusdam!"
           reverse={true}
         />
       </div>

@@ -1,4 +1,6 @@
 import Hero from "@/components/hero";
+import Location from "@/components/location";
+import Results from "@/components/results";
 import Service from "@/components/service";
 import WhyChooseUs from "@/components/whyeverybody";
 
@@ -13,7 +15,20 @@ export default function Home() {
       <div id="service">
         <Service />
       </div>
-      <WhyChooseUs />
+
+      {/* <div id="about-us">
+        <WhyChooseUs />
+      </div> */}
+
+      {/* <div id="results">
+        <Results />
+      </div> */}
+
+      {/* <div id="location">
+        <Location />
+      </div> */}
+
+      <div></div>
     </div>
   );
 }

@@ -88,7 +88,7 @@ export default function Service() {
       </div>
       {/* Content */}
       <div className="flex flex-wrap justify-center lg:grid gap-[26px] lg:grid-cols-3 py-5">
-        {services.map((data, i) => (
+        {/* {services.map((data, i) => (
           <ServiceCard
             key={i}
             description={data.description}
@@ -97,7 +97,7 @@ export default function Service() {
             imageUrl={data.imagePath}
             reserveLink={data.link}
           />
-        ))}
+        ))} */}
         <SkinSolutionCard />
       </div>
     </div>
@@ -106,17 +106,17 @@ export default function Service() {
 
 function SkinSolutionCard() {
   return (
-    <Card className="w-full max-w-sm bg-[#f0f7f1] rounded-3xl shadow-xl overflow-hidden p-6 md:p-8 font-sans">
+    <Card className="w-full max-w-sm bg-[#f0f7f1] rounded-3xl overflow-hidden p-6 border-none">
       <CardContent className="p-0 flex flex-col items-center text-center">
-        <h2 className="text-2xl md:text-3xl font-bold text-black mb-8 leading-tight">
+        <h2 className="text-[28px] font-bold text-black leading-tight text-left">
           Tell Us Your Skin Problems and We Will Find The Solution
         </h2>
 
-        <div className="relative mb-10 w-full h-64 md:h-72 flex items-center justify-center">
+        <div className="relative w-full h-64 md:h-72 flex items-center justify-center">
           <ContactUsIllustration />
         </div>
 
-        <Button className="w-full max-w-xs bg-[#547d5e] hover:bg-[#4a6b53] text-white font-semibold py-3 px-6 rounded-full text-lg flex items-center justify-center gap-2 shadow-md">
+        <Button className="w-full max-w-2xs bg-[#547d5e] hover:bg-[#4a6b53] text-white font-semibold py-7 px-6 rounded-full text-lg flex items-center justify-center gap-2 shadow-md cursor-pointer">
           <MessageCircle className="w-5 h-5" />
           Contact Us
         </Button>
