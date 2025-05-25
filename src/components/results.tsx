@@ -7,11 +7,8 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel";
-import { Instagram } from "lucide-react";
 import BadgeInstagram from "./BadgeInstagram";
 
 interface MediaItem {

@@ -49,7 +49,7 @@ export default function ContactUsIllustration() {
 type ImageCircleProps = {
   className: string;
   alt: string;
-  src: any;
+  src: string;
 };
 
 function ImageCircle({ className, alt, src }: ImageCircleProps) {

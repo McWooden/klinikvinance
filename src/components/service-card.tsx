@@ -1,8 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Stethoscope } from "lucide-react"; // Atau ikon lain yang lebih sesuai
 import { Button } from "@/components/ui/button"; // Asumsi Anda menggunakan Button dari shadcn/ui
-import { cn } from "@/lib/utils";
 import BadgeObat from "./BadgeObat";
 
 interface ServiceCardProps {

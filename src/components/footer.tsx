@@ -1,13 +1,6 @@
 import "../app/globals.css";
 
-import {
-  MessageCircle,
-  Award,
-  Briefcase,
-  Hospital,
-  Phone,
-  Copyright,
-} from "lucide-react";
+import { Copyright } from "lucide-react";
 import Image from "next/image";
 import { Separator } from "./ui/separator";
 import { cn } from "@/lib/utils";
@@ -73,7 +66,7 @@ export default function Footer() {
               {/* <Award size={36} className="text-yellow-400 flex-shrink-0" /> */}
               <BadgeMedali width={44} height={39} />
               <span className="text-[16px] text-[#ACDCC0]">
-                Indonesia's Leading Certified Clinic
+                Indonesia&apos;s Leading Certified Clinic
               </span>
             </div>
           </div>

@@ -1,7 +1,6 @@
 // src/app/components/Reservation.tsx (atau di mana pun Anda meletakkannya)
 import Image from "next/image";
 import { Button } from "@/components/ui/button"; // Sesuaikan path jika berbeda
-import { MessageSquare } from "lucide-react";
 import BadgeWhatsapp from "./BadgeWhatsapp";
 
 export default function Reservation() {

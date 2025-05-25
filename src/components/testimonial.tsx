@@ -78,10 +78,7 @@ const testimonialData: Testimonial[] = [
   },
 ];
 
-// Komponen untuk satu kartu testimoni
-interface TestimonialCardProps extends Testimonial {}
-
-const TestimonialCard: React.FC<TestimonialCardProps> = ({
+const TestimonialCard: React.FC<Omit<Testimonial, "id">> = ({
   quote,
   imageSrc,
   clientName,
@@ -139,7 +136,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
 };
 
 export default function Testimonial() {
-  const [api, setApi] = useState<CarouselApi>();
+  const [, setApi] = useState<CarouselApi>();
 
   return (
     <section className="w-full py-12 md:py-16 bg-gray-50">

@@ -9,7 +9,6 @@ import {
   ChevronRight,
   ChevronUp,
   ChevronDown,
-  MapPin,
 } from "lucide-react";
 
 interface LocationData {

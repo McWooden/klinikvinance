@@ -1,8 +1,7 @@
 // components/sections/WhyChooseUs.tsx
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import React, { JSX } from "react";
-import { Verified } from "lucide-react";
+import React from "react";
 
 interface ImageTextCardProps {
   imagePath: string;
