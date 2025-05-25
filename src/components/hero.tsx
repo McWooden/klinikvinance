@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import BadgeObat from "./ui/BadgeObat";
+import BadgeObat from "./BadgeObat";
 import { cn } from "@/lib/utils";
 
 interface TextProps {

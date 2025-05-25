@@ -67,9 +67,9 @@ function extractLocationFromEmbed(embedLink: string): string | null {
     );
     if (cidHexMatch && cidHexMatch[1]) {
       const hexId = cidHexMatch[1].startsWith("0x")
-        ? cidHexMatch[1].substring(2)
-        : cidHexMatch[1];
-      cid = parseInt(hexId, 16).toString();
+        ? cidHexMatch[1]
+        : `0x${cidHexMatch[1]}`;
+      cid = BigInt(hexId).toString();
     }
 
     // Extract language (hl) and region (gl) from !3m2 or !5m2 blocks
@@ -387,7 +387,7 @@ export default function Location() {
             </div>
             {/* Pop-up Info di atas Peta untuk Desktop */}
             {selectedLocation.mapInfoDesktop && (
-              <div className="absolute top-6 left-6 z-10">
+              <div className="absolute top-2 left-2 z-10">
                 <Card className="bg-white/95 backdrop-blur-sm shadow-xl w-80 max-w-sm">
                   <CardContent className="p-4">
                     <div className="flex items-start space-x-3 mb-3">

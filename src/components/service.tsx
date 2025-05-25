@@ -59,36 +59,37 @@ export default function Service() {
   return (
     <div className="w-full flex flex-col lg:px-28 justify-center p-4">
       {/* Header */}
-      <div className="">
+      <div className="flex gap-[20px] mb-8">
         {/* Header Icon */}
-        <div className="relative hidden lg:flex">
+        <div className="items-end justify-center w-[88px] lg:flex-none relative hidden lg:flex">
           <Image
             src="/image/service/vector-1.png"
             alt="Layer 1"
-            width={48}
-            height={72}
+            width={88}
+            height={112}
           />
           <Image
             src="/image/service/vector-2.png"
             alt="Layer 2"
-            width={24}
-            height={36}
+            width={63}
+            height={80}
             className="absolute z-10"
           />
         </div>
         <div className="flex flex-col gap-[20px]">
-          <h3 className="font-semibold text-[22px]">
+          <h3 className="font-semibold text-[22px] lg:text-[36px]">
             Register to Our Services
           </h3>
-          <p className="text-[12px] text-[#447759] mb-8 dark:text-gray-400">
+          <p className="text-[12px] text-[#447759] dark:text-gray-400 lg:text-[16px]">
             Our services are trusted and certified from the best doctors in
-            town. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            town. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Praesent velit arcu, venenatis eget vulputate vel.
           </p>
         </div>
       </div>
       {/* Content */}
       <div className="flex flex-wrap justify-center lg:grid gap-[26px] lg:grid-cols-3 py-5">
-        {/* {services.map((data, i) => (
+        {services.map((data, i) => (
           <ServiceCard
             key={i}
             description={data.description}
@@ -97,7 +98,7 @@ export default function Service() {
             imageUrl={data.imagePath}
             reserveLink={data.link}
           />
-        ))} */}
+        ))}
         <SkinSolutionCard />
       </div>
     </div>

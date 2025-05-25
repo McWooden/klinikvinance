@@ -1,8 +1,6 @@
 import "../app/globals.css";
 
 import {
-  Youtube,
-  Instagram,
   MessageCircle,
   Award,
   Briefcase,
@@ -13,6 +11,13 @@ import {
 import Image from "next/image";
 import { Separator } from "./ui/separator";
 import { cn } from "@/lib/utils";
+import BadgeBrieftcase from "./BadgeBrieftcase";
+import BadgeCabang from "./BadgeCabang";
+import BadgeTelepon from "./BadgeTelepon";
+import BadgeInstagram from "./BadgeInstagram";
+import BadgeYoutube from "./BadgeYoutube";
+import BadgeWhatsapp from "./BadgeWhatsapp";
+import BadgeMedali from "./BadgeMedali";
 
 const logoPath = "/image/logo.png";
 export default function Footer() {
@@ -22,15 +27,15 @@ export default function Footer() {
     <footer
       className={cn(
         "w-full",
-        "bg-[#2A3C30]",
+        "bg-[#223429]",
         "text-gray-200",
-        "py-12 px-4 lg:px-8 lg:px-16"
+        "py-12 px-4 lg:px-16"
       )}
     >
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 mb-10">
-          <div className="lg:space-y-0 order-last lg:order-first flex flex-col items-center text-center">
-            <div>
+          <div className="order-last lg:order-first flex flex-col gap-[20px] items-center lg:items-start">
+            <div className="max-w-[235px]">
               <Image
                 src={logoPath}
                 alt="Venice Aesthetic Clinic Logo"
@@ -38,48 +43,53 @@ export default function Footer() {
                 height={78}
                 className="object-contain h-auto"
               />
+
+              <div className="flex justify-evenly w-full">
+                <a
+                  href="#"
+                  aria-label="Venice Clinic YouTube"
+                  className="text-gray-400 hover:text-white transition-colors duration-200"
+                >
+                  <BadgeYoutube width={32} height={32} />
+                </a>
+                <a
+                  href="#"
+                  aria-label="Venice Clinic Instagram"
+                  className="text-gray-400 hover:text-white transition-colors duration-200"
+                >
+                  <BadgeInstagram width={32} height={32} />
+                </a>
+                <a
+                  href="#"
+                  aria-label="Venice Clinic WhatsApp"
+                  className="text-gray-400 hover:text-white transition-colors duration-200"
+                >
+                  <BadgeWhatsapp width={32} height={32} />
+                </a>
+              </div>
             </div>
 
-            <div className="flex space-y-6 space-x-8 lg:space-y-4">
-              <a
-                href="#"
-                aria-label="Venice Clinic YouTube"
-                className="text-gray-400 hover:text-white transition-colors duration-200"
-              >
-                <Youtube size={36} />
-              </a>
-              <a
-                href="#"
-                aria-label="Venice Clinic Instagram"
-                className="text-gray-400 hover:text-white transition-colors duration-200"
-              >
-                <Instagram size={36} />
-              </a>
-              <a
-                href="#"
-                aria-label="Venice Clinic WhatsApp"
-                className="text-gray-400 hover:text-white transition-colors duration-200"
-              >
-                <MessageCircle size={36} />
-              </a>
-            </div>
-            <div className="border space-y-6 lg:space-y-4 border-gray-500 rounded-md p-3 flex items-center space-x-2 w-full max-w-[280px] lg:max-w-xs">
-              <Award size={36} className="text-yellow-400 flex-shrink-0" />
-              <span className="text-sm text-gray-300">
+            <div className="border border-gray-500 rounded-md p-3 flex items-center w-full max-w-[250px]">
+              {/* <Award size={36} className="text-yellow-400 flex-shrink-0" /> */}
+              <BadgeMedali width={44} height={39} />
+              <span className="text-[16px] text-[#ACDCC0]">
                 Indonesia's Leading Certified Clinic
               </span>
             </div>
           </div>
 
-          <div className="space-y-3 order-1 lg:order-2">
-            <div className="flex items-center space-x-2 mb-1">
-              <Briefcase
-                size={20}
+          <div className="flex flex-col gap-[24px]">
+            <div className="flex flex-col gap-[10px] mb-1">
+              {/* <Briefcase
+                size={40}
                 className="text-gray-400 hidden lg:inline-block"
-              />
-              <h3 className="text-lg font-semibold text-white">Company Info</h3>
+              /> */}
+              <BadgeBrieftcase width={40} height={40} />
+              <h3 className="text-[20px] font-semibold text-white">
+                Company Info
+              </h3>
             </div>
-            <ul className="space-y-2 text-sm">
+            <ul className="flex flex-col gap-[16px] text-[16px]">
               <li>
                 <a
                   href="#"
@@ -107,15 +117,16 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="space-y-3 order-2 lg:order-3">
-            <div className="flex items-center space-x-2 mb-1">
-              <Hospital
-                size={20}
+          <div className="flex flex-col gap-[24px]">
+            <div className="flex flex-col gap-[10px] mb-1">
+              {/* <Hospital
+                size={40}
                 className="text-gray-400 hidden lg:inline-block"
-              />
-              <h3 className="text-lg font-semibold text-white">Cabang</h3>
+              /> */}
+              <BadgeCabang width={40} height={40} />
+              <h3 className="text-[20px] font-semibold text-white">Cabang</h3>
             </div>
-            <ul className="space-y-2 text-sm">
+            <ul className="flex flex-col gap-[16px] text-[16px]">
               <li>
                 <a
                   href="#"
@@ -137,7 +148,7 @@ export default function Footer() {
                   href="#"
                   className="text-gray-400 hover:text-white transition-colors duration-200"
                 >
-                  Surabaya
+                  Semarang
                 </a>
               </li>
               <li>
@@ -145,21 +156,32 @@ export default function Footer() {
                   href="#"
                   className="text-gray-400 hover:text-white transition-colors duration-200"
                 >
-                  Semarang
+                  Kudus
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="text-gray-400 hover:text-white transition-colors duration-200"
+                >
+                  Salatiga
                 </a>
               </li>
             </ul>
           </div>
 
-          <div className="space-y-3 order-3 lg:order-4">
-            <div className="flex items-center space-x-2 mb-1">
-              <Phone
-                size={20}
+          <div className="flex flex-col gap-[24px]">
+            <div className="flex flex-col gap-[10px] mb-1">
+              <BadgeTelepon width={40} height={40} />
+              {/* <Phone
+                size={40}
                 className="text-gray-400 hidden lg:inline-block"
-              />
-              <h3 className="text-lg font-semibold text-white">Contact Us</h3>
+              /> */}
+              <h3 className="text-[20px] font-semibold text-white">
+                Contact Us
+              </h3>
             </div>
-            <ul className="space-y-2 text-sm">
+            <ul className="flex flex-col gap-[16px] text-[16px]">
               <li>
                 <a
                   href="tel:+626564465455"
@@ -185,7 +207,7 @@ export default function Footer() {
 
         <Separator className="bg-gray-700" />
 
-        <div className="text-sm text-center text-gray-400 pt-8">
+        <div className="text-[16px] text-center text-gray-400 pt-[40px]">
           Copyright{" "}
           <Copyright size={14} className="inline-block align-text-bottom" />{" "}
           {currentYear} Venice Clinic. All rights reserved.

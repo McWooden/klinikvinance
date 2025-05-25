@@ -21,7 +21,7 @@ export default function ContactUsIllustration() {
           </div>
 
           <ImageCircle
-            className="w-[152px] top-[114px] right-[92px] sava lg:w-[132px] lg:top-[24px] lg:right-[28px]"
+            className="w-[152px] top-[114px] right-[62px] sava lg:w-[132px] lg:top-[24px] lg:right-[28px]"
             alt="Unsplash"
             src={doctorImage1}
           />
@@ -34,7 +34,7 @@ export default function ContactUsIllustration() {
           />
 
           <ImageCircle
-            className="w-[152px] top-[0px] right-[40px] udin lg:w-[132px] lg:top-[116px] lg:right-[115px]"
+            className="w-[152px] top-[0px] right-[64px] udin lg:w-[132px] lg:top-[116px] lg:right-[115px]"
             // className="w-[112px] right-[70px] udin top-[8px]  lg:w-[132px] lg:top-[124px] lg:left-[136px]"
             // className="w-[148px] h-[147px] top-[103px] left-[109px]"
             alt="Unsplash"
@@ -56,7 +56,7 @@ function ImageCircle({ className, alt, src }: ImageCircleProps) {
   return (
     <div className={`absolute overflow-hidden aspect-square ${className}`}>
       <Image
-        className="object-cover z-[999]"
+        className="object-cover"
         alt={alt}
         src={src}
         fill

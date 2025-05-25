@@ -13,7 +13,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
-import BadgeObat from "./ui/BadgeObat";
+import BadgeObat from "./BadgeObat";
 
 export default function Header() {
   const pathname = usePathname();

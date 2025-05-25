@@ -12,6 +12,7 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 import { Instagram } from "lucide-react";
+import BadgeInstagram from "./BadgeInstagram";
 
 interface MediaItem {
   name: string;
@@ -191,7 +192,7 @@ export default function Results() {
             className="flex items-center justify-center gap-2 cursor-pointer"
           >
             <div className="p-1 rounded-full flex items-center justify-center">
-              <Instagram className="w-5 h-5 md:w-6 md:h-6 text-white" />
+              <BadgeInstagram className="w-5 h-5 md:w-6 md:h-6 size-[unset] text-white" />
             </div>
             Check Out Our Instagram
           </a>
