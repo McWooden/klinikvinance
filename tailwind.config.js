@@ -9,9 +9,7 @@ module.exports = {
       boxShadow: {
         'custom-green': '0px 14px 23px 0px #70C39257',
       },
-      maxWidth: {
-        'contentMax': '1180px'
-      }
+      
     },
   },
   plugins: [],

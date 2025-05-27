@@ -1,7 +1,7 @@
 // pages/service.tsx (atau halaman lain tempat Anda ingin menampilkannya)
 
-import Reservation from "@/components/reservation";
-import ServiceCatalog from "../../components/catalog";
+import Reservation from "@/components/home-page/reservation";
+import ServiceCatalog from "../../components/service-page/catalog";
 
 // import Header from '../components/Header'; // Anda bilang sudah punya header
 

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import BadgeObat from "./BadgeObat";
+import BadgeObat from "./icons/BadgeObat";
 
 interface ServiceCardProps {
   imageUrl: string;

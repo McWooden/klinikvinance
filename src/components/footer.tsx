@@ -4,13 +4,13 @@ import { Copyright } from "lucide-react";
 import Image from "next/image";
 import { Separator } from "./ui/separator";
 import { cn } from "@/lib/utils";
-import BadgeBrieftcase from "./BadgeBrieftcase";
-import BadgeCabang from "./BadgeCabang";
-import BadgeTelepon from "./BadgeTelepon";
-import BadgeInstagram from "./BadgeInstagram";
-import BadgeYoutube from "./BadgeYoutube";
-import BadgeWhatsapp from "./BadgeWhatsapp";
-import BadgeMedali from "./BadgeMedali";
+import BadgeBrieftcase from "./icons/BadgeBrieftcase";
+import BadgeCabang from "./icons/BadgeCabang";
+import BadgeTelepon from "./icons/BadgeTelepon";
+import BadgeInstagram from "./icons/BadgeInstagram";
+import BadgeYoutube from "./icons/BadgeYoutube";
+import BadgeWhatsapp from "./icons/BadgeWhatsapp";
+import BadgeMedali from "./icons/BadgeMedali";
 
 const logoPath = "/image/logo.png";
 export default function Footer() {

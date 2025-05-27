@@ -1,10 +1,10 @@
-import Hero from "@/components/hero";
-import Location from "@/components/location";
-import Reservation from "@/components/reservation";
-import Results from "@/components/results";
-import Service from "@/components/service";
-import Testimonial from "@/components/testimonial";
-import WhyChooseUs from "@/components/whyeverybody";
+import Hero from "@/components/home-page/hero";
+import Location from "@/components/home-page/location";
+import Reservation from "@/components/home-page/reservation";
+import Results from "@/components/home-page/results";
+import Service from "@/components/home-page/service";
+import Testimonial from "@/components/home-page/testimonial";
+import WhyEverybody from "@/components/home-page/whyeverybody";
 
 export default function Home() {
   return (
@@ -18,7 +18,7 @@ export default function Home() {
       </div>
 
       <div id="about-us">
-        <WhyChooseUs />
+        <WhyEverybody />
       </div>
 
       <div id="results">
