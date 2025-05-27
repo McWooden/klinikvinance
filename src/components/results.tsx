@@ -84,12 +84,12 @@ export default function Results() {
   );
 
   return (
-    <section className="w-full py-12 md:py-16 bg-white">
-      <div className="container mx-auto px-4 md:px-6 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-zinc-800 mb-3">
+    <section className="w-full py-0">
+      <div className="container mx-auto max-w-[1180px] text-center">
+        <h2 className="text-3xl md:text-4xl font-bold px-5 lg:px-0 text-zinc-800 mb-3">
           Our Real Results
         </h2>
-        <p className="text-sm md:text-base text-[#447759] mx-auto mb-8 md:mb-12 text-center">
+        <p className="text-sm md:text-base px-5 lg:px-0 text-[#447759] mx-auto mb-8 md:mb-12 text-center">
           Real results from real customers, lorem ipsum dolor sit amet,
           consectetur adipiscing elit. Praesent velit arcu, venenatis eget
           vulputate vel.
@@ -99,7 +99,6 @@ export default function Results() {
           setApi={setApi}
           opts={{
             loop: true,
-            dragFree: true,
             align: "center",
           }}
           className="w-full max-w-5xl mx-auto"
@@ -109,10 +108,10 @@ export default function Results() {
             {mediaData.map((item, index) => (
               <CarouselItem
                 key={index}
-                className="pl-4 basis-[80%] sm:basis-[60%] md:basis-1/3 lg:basis-1/5"
+                className="basis-[70%] sm:basis-[50%] md:basis-1/3 lg:basis-1/5"
               >
-                <div className="p-1 h-full">
-                  <div className="relative aspect-[9/16] rounded-2xl overflow-hidden shadow-lg group h-full">
+                <div className="h-full">
+                  <div className="relative aspect-[9/16] rounded-4xl overflow-hidden group h-full">
                     {item.type === "image" ? (
                       <Image
                         src={item.src}
@@ -188,9 +187,7 @@ export default function Results() {
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 cursor-pointer"
           >
-            <div className="p-1 rounded-full flex items-center justify-center">
-              <BadgeInstagram className="w-5 h-5 md:w-6 md:h-6 size-[unset] text-white" />
-            </div>
+            <BadgeInstagram width={24} height={24} className="size-[unset]" />
             Check Out Our Instagram
           </a>
         </Button>

@@ -7,10 +7,60 @@ import {
   CarouselContent,
   CarouselItem,
   type CarouselApi,
-} from "@/components/ui/carousel"; // Sesuaikan path jika berbeda
-import { Star } from "lucide-react"; // Untuk ikon bintang
+} from "@/components/ui/carousel";
+import { Star } from "lucide-react";
 
-// Definisikan tipe untuk data testimoni
+export default function Testimonial() {
+  const [, setApi] = useState<CarouselApi>();
+
+  return (
+    <section className="w-full max-w-[1180px] mx-auto bg-gray-50">
+      <h2 className="text-3xl md:text-4xl font-bold text-black mb-3 text-center px-5">
+        Testimonials by Patients
+      </h2>
+      <p className="text-sm md:text-base text-[#447759] mx-auto mb-8 md:mb-12 w-full text-center px-5">
+        Testimony from our 5000+ patients, lorem ipsum dolor sit amet,
+        consectetur adipiscing elit. Praesent velit arcu, venenatis eget
+        vulputate vel.
+      </p>
+
+      {/* Desktop */}
+      <div className="hidden md:grid  md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 px-5">
+        {testimonialData.map((testimonial) => (
+          <TestimonialCard key={testimonial.id} {...testimonial} />
+        ))}
+      </div>
+
+      {/* Mobile */}
+      <div className="md:hidden">
+        <Carousel
+          setApi={setApi}
+          opts={{
+            align: "start",
+            loop: false,
+          }}
+          className="w-full"
+        >
+          <CarouselContent className="">
+            {" "}
+            {testimonialData.map((testimonial) => (
+              <CarouselItem
+                key={testimonial.id}
+                className="basis-[80%] sm:basis-[80%] first:pl-[20px] last:pr-[20px]"
+              >
+                {/* here us */}
+                <div className="p-1 h-full">
+                  <TestimonialCard {...testimonial} />
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+      </div>
+    </section>
+  );
+}
+
 interface Testimonial {
   id: number;
   quote: string;
@@ -20,7 +70,6 @@ interface Testimonial {
   rating: number;
 }
 
-// Data testimoni (sesuaikan dengan konten Anda)
 const testimonialData: Testimonial[] = [
   {
     id: 1,
@@ -86,14 +135,12 @@ const TestimonialCard: React.FC<Omit<Testimonial, "id">> = ({
   rating,
 }) => {
   return (
-    <div className="bg-white p-6 shadow shadow-black/35 rounded-3xl flex flex-col h-full">
+    <div className="bg-white p-6 shadow-[0px_1px_3px_1px_#00000026] rounded-3xl flex flex-col h-full">
       <p className="text-black text-[13px] mb-6 leading-5 flex-grow">
         “{quote}”
       </p>
-      {/* Kontainer untuk info klien dan rating */}
       <div className="mt-auto flex items-center space-x-3">
         {" "}
-        {/* space-x untuk jarak antar gambar dan teks */}
         <div className="relative w-16 h-16 rounded-full overflow-hidden shrink-0">
           <Image
             src={imageSrc}
@@ -104,17 +151,14 @@ const TestimonialCard: React.FC<Omit<Testimonial, "id">> = ({
           />
         </div>
         <div className="flex-grow">
-          {/* Bintang Rating */}
           <div className="flex items-center gap-0.5 ml-2 mb-2">
             {" "}
-            {/* Sedikit margin bawah untuk bintang */}
             {Array(5)
               .fill(0)
               .map((_, i) => (
                 <Star
                   key={i}
                   className={`w-4 h-4 ${
-                    // Ukuran bintang bisa disesuaikan, misal w-4 h-4 atau w-5 h-5
                     i < rating
                       ? "text-yellow-400 fill-yellow-400"
                       : "text-gray-300"
@@ -122,7 +166,6 @@ const TestimonialCard: React.FC<Omit<Testimonial, "id">> = ({
                 />
               ))}
           </div>
-          {/* Nama dan Jabatan */}
           <p className="font-semibold ml-2 text-green-600/35 text-lg leading-tight">
             {clientName}
           </p>
@@ -134,64 +177,3 @@ const TestimonialCard: React.FC<Omit<Testimonial, "id">> = ({
     </div>
   );
 };
-
-export default function Testimonial() {
-  const [, setApi] = useState<CarouselApi>();
-
-  return (
-    <section className="w-full py-12 md:py-16 bg-gray-50">
-      <div className="container mx-auto px-6 md:px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-black mb-3 text-center">
-          Testimonials by Patients
-        </h2>
-        <p className="text-sm md:text-base text-[#447759] mx-auto mb-8 md:mb-12 w-full text-center">
-          Testimony from our 5000+ patients, lorem ipsum dolor sit amet,
-          consectetur adipiscing elit. Praesent velit arcu, venenatis eget
-          vulputate vel.
-        </p>
-
-        {/* Desktop View: Grid */}
-        <div className="hidden md:grid  md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {testimonialData.map((testimonial) => (
-            <TestimonialCard key={testimonial.id} {...testimonial} />
-          ))}
-        </div>
-
-        {/* Mobile View: Carousel */}
-        <div className="md:hidden">
-          <Carousel
-            setApi={setApi}
-            opts={{
-              align: "start", // Memastikan item pertama rata kiri
-              loop: false, // Bisa true jika diinginkan
-              // slidesToScroll: 1, // Ini defaultnya
-            }}
-            className="w-full"
-          >
-            <CarouselContent className="-ml-4">
-              {" "}
-              {/* Standar shadcn untuk offset */}
-              {testimonialData.map((testimonial) => (
-                <CarouselItem
-                  key={testimonial.id}
-                  // basis-[85%] berarti item utama mengambil 85% lebar,
-                  // menyisakan 15% untuk preview item berikutnya (kurang lebih).
-                  // Sesuaikan nilai ini (misal 80%, 90%) untuk efek yang diinginkan.
-                  // pl-4 adalah standar shadcn untuk spacing antar item.
-                  className="pl-4 basis-[85%] sm:basis-[80%]"
-                >
-                  <div className="p-1 h-full">
-                    {" "}
-                    {/* Padding agar border tidak terpotong */}
-                    <TestimonialCard {...testimonial} />
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            {/* Tidak ada CarouselPrevious dan CarouselNext */}
-          </Carousel>
-        </div>
-      </div>
-    </section>
-  );
-}

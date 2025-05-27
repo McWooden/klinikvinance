@@ -3,6 +3,42 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import React from "react";
 
+export default function WhyChooseUs() {
+  return (
+    <section className="py-0 bg-gray-50">
+      <div className="container flex flex-col gap-10 mx-auto lg:px-0 max-w-[1180px] px-5">
+        <div>
+          <h2 className="text-3xl font-bold mb-4">
+            Why Everybody Loves Venice Clinic?
+          </h2>
+          <p className="text-gray-600">
+            We make sure that every services come to life, Lorem ipsum dolor
+            sit, amet consectetur adipisicing elit. Velit harum, aliquam saepe
+            itaque pariatur debitis.
+          </p>
+        </div>
+        {/* Image kiri di desktop, image atas di mobile */}
+        <ImageTextCard
+          imagePath="/image/whychooseus/image-1.png"
+          title="We Provide The Best Service"
+          description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, soluta corrupti necessitatibus temporibus facilis ipsa totam animi assumenda quis impedit ducimus veritatis sapiente unde illo quia distinctio incidunt velit voluptas dolorum! Dolores, iste deserunt distinctio maiores asperiores alias!"
+          description2="Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam saepe reiciendis nulla a at quibusdam rem doloribus facilis harum! Beatae veniam nulla asperiores quibusdam!"
+          reverse={false}
+        />
+
+        {/* Image kanan di desktop, image bawah di mobile */}
+        <ImageTextCard
+          imagePath="/image/whychooseus/image-2.png"
+          title="We Provide The Best Facility"
+          description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, soluta corrupti necessitatibus temporibus facilis ipsa totam animi assumenda quis impedit ducimus veritatis sapiente unde illo quia distinctio incidunt velit voluptas dolorum! Dolores, iste deserunt distinctio maiores asperiores alias!"
+          description2="Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam saepe reiciendis nulla a at quibusdam rem doloribus facilis harum! Beatae veniam nulla asperiores quibusdam!"
+          reverse={true}
+        />
+      </div>
+    </section>
+  );
+}
+
 interface ImageTextCardProps {
   imagePath: string;
   title: string;
@@ -19,7 +55,7 @@ function ImageTextCard({
   reverse = false,
 }: ImageTextCardProps) {
   return (
-    <div className="flex flex-col md:flex-row items-center gap-8 mb-20">
+    <div className="flex flex-col md:flex-row items-center gap-8">
       {/* Image */}
       <div
         className={cn(
@@ -48,39 +84,5 @@ function ImageTextCard({
         {description2 && <p className="text-gray-600">{description2}</p>}
       </div>
     </div>
-  );
-}
-
-export default function WhyChooseUs() {
-  return (
-    <section id="about-us" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4 lg:px-24 ">
-        <h2 className="text-3xl font-bold mb-4">
-          Why Everybody Loves Venice Clinic?
-        </h2>
-        <p className="text-gray-600 mb-16">
-          We make sure that every services come to life, Lorem ipsum dolor sit,
-          amet consectetur adipisicing elit. Velit harum, aliquam saepe itaque
-          pariatur debitis.
-        </p>
-        {/* Image kiri di desktop, image atas di mobile */}
-        <ImageTextCard
-          imagePath="/image/whychooseus/image-1.png"
-          title="We Provide The Best Service"
-          description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, soluta corrupti necessitatibus temporibus facilis ipsa totam animi assumenda quis impedit ducimus veritatis sapiente unde illo quia distinctio incidunt velit voluptas dolorum! Dolores, iste deserunt distinctio maiores asperiores alias!"
-          description2="Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam saepe reiciendis nulla a at quibusdam rem doloribus facilis harum! Beatae veniam nulla asperiores quibusdam!"
-          reverse={false}
-        />
-
-        {/* Image kanan di desktop, image bawah di mobile */}
-        <ImageTextCard
-          imagePath="/image/whychooseus/image-2.png"
-          title="We Provide The Best Facility"
-          description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, soluta corrupti necessitatibus temporibus facilis ipsa totam animi assumenda quis impedit ducimus veritatis sapiente unde illo quia distinctio incidunt velit voluptas dolorum! Dolores, iste deserunt distinctio maiores asperiores alias!"
-          description2="Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam saepe reiciendis nulla a at quibusdam rem doloribus facilis harum! Beatae veniam nulla asperiores quibusdam!"
-          reverse={true}
-        />
-      </div>
-    </section>
   );
 }

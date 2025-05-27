@@ -1,11 +1,8 @@
 import Image from "next/image";
 
-// const doctorImage1 = "/image/service/tell.png";
-// const doctorImage2 = "/image/service/tell2.png";
-const doctorImage1 = "/image/service/custom-1.png";
-const doctorImage2 = "/image/service/custom-2.png";
-const clinicImage = "/image/service/custom-3.png";
-// const clinicImage = "/image/service/vector-1.png";
+const image1 = "/image/service/custom-1.png";
+const image2 = "/image/service/custom-2.png";
+const image3 = "/image/service/custom-3.png";
 
 export default function ContactUsIllustration() {
   return (
@@ -21,24 +18,21 @@ export default function ContactUsIllustration() {
           </div>
 
           <ImageCircle
-            className="w-[152px] top-[114px] right-[62px] sava lg:w-[132px] lg:top-[24px] lg:right-[28px]"
+            className="w-[152px] top-[114px] right-[62px] lg:w-[132px] lg:top-[24px] lg:right-[28px]"
             alt="Unsplash"
-            src={doctorImage1}
+            src={image1}
           />
 
           <ImageCircle
-            className="w-[152px] top-[54px] left-[42px] rizqi lg:w-[132px] lg:top-[24px] lg:left-[28px]"
-            // className="w-[98px] h-[132px] top-[9px] left-0"
+            className="w-[152px] top-[54px] left-[42px] lg:w-[132px] lg:top-[24px] lg:left-[28px]"
             alt="Unsplash"
-            src={doctorImage2}
+            src={image2}
           />
 
           <ImageCircle
-            className="w-[152px] top-[0px] right-[64px] udin lg:w-[132px] lg:top-[116px] lg:right-[115px]"
-            // className="w-[112px] right-[70px] udin top-[8px]  lg:w-[132px] lg:top-[124px] lg:left-[136px]"
-            // className="w-[148px] h-[147px] top-[103px] left-[109px]"
+            className="w-[152px] top-[0px] right-[64px] lg:w-[132px] lg:top-[116px] lg:right-[115px]"
             alt="Unsplash"
-            src={clinicImage}
+            src={image3}
           />
         </div>
       </div>

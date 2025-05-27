@@ -8,8 +8,7 @@ import WhyChooseUs from "@/components/whyeverybody";
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-[150px]">
-      {/* disable for better performance */}
+    <div className="flex flex-col gap-[100px] lg:gap-[150px]">
       <div id="home" className="bg-[#F1F9F4]">
         <Hero />
       </div>
@@ -35,7 +34,7 @@ export default function Home() {
       </div>
 
       <div id="reservation">
-        <Reservation />
+        <Reservation className="lg:mb-[150px]" />
       </div>
     </div>
   );

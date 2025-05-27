@@ -10,6 +10,7 @@ import {
   ChevronUp,
   ChevronDown,
 } from "lucide-react";
+import { extractLocationFromEmbed } from "@/lib/utils";
 
 interface LocationData {
   id: string;
@@ -24,109 +25,6 @@ interface LocationData {
     hours: string;
   };
 }
-
-function extractLocationFromEmbed(embedLink: string): string | null {
-  try {
-    const url = new URL(embedLink);
-    const pb = url.searchParams.get("pb");
-
-    if (!pb) {
-      console.error("Parameter 'pb' tidak ditemukan dalam link embed.");
-      return null;
-    }
-
-    let lat: string | null = null;
-    let lng: string | null = null;
-    let zoom: string = "15"; // Default zoom if not explicitly found
-    let cid: string | null = null;
-    let hl: string = "id"; // Default language
-    let gl: string = "ID"; // Default region
-
-    // Extract latitude from !3d
-    const latMatch = pb.match(/!3d(-?\d+\.\d+)/);
-    if (latMatch && latMatch[1]) {
-      lat = parseFloat(latMatch[1]).toFixed(6); // Standard precision for lat/lng
-    }
-
-    // Extract longitude from !2d
-    const lngMatch = pb.match(/!2d(-?\d+\.\d+)/);
-    if (lngMatch && lngMatch[1]) {
-      lng = lngMatch[1];
-    }
-
-    // Extract zoom from !1z if present, otherwise default to 15
-    const zoomMatchPb = pb.match(/!1z(\d+)/);
-    if (zoomMatchPb && zoomMatchPb[1]) {
-      zoom = zoomMatchPb[1];
-    }
-
-    // Extract Place ID (CID) from !1s...%3A(0xHEX)...
-    const cidHexMatch = pb.match(
-      /!1s(?:0x[0-9a-fA-F]+(?:%3A|:))?(0x[0-9a-fA-F]+)!/
-    );
-    if (cidHexMatch && cidHexMatch[1]) {
-      const hexId = cidHexMatch[1].startsWith("0x")
-        ? cidHexMatch[1]
-        : `0x${cidHexMatch[1]}`;
-      cid = BigInt(hexId).toString();
-    }
-
-    // Extract language (hl) and region (gl) from !3m2 or !5m2 blocks
-    const langRegionRegex = /!(?:3m2|5m2)!1s([a-zA-Z]{2})!2s([a-zA-Z]{2,})/g;
-    let lastLangMatch: RegExpExecArray | null = null;
-    let currentLangMatch: RegExpExecArray | null;
-    while ((currentLangMatch = langRegionRegex.exec(pb)) !== null) {
-      lastLangMatch = currentLangMatch;
-    }
-
-    if (lastLangMatch) {
-      hl = lastLangMatch[1].toLowerCase();
-      gl = lastLangMatch[2].toUpperCase();
-    }
-
-    // Construct the output URL
-    const outputBaseUrl = "https://maps.google.com/maps";
-    const params = new URLSearchParams();
-
-    if (lat && lng) {
-      params.set("ll", `${lat},${lng}`);
-    } else if (!cid) {
-      console.warn(
-        "Tidak dapat mengekstrak latitude/longitude, dan CID tidak ditemukan. Link peta mungkin tidak terpusat."
-      );
-    }
-
-    // Set zoom only if location (ll or cid) is available
-    if ((lat && lng) || cid) {
-      params.set("z", zoom);
-    }
-
-    params.set("t", "m"); // Map type: 'm' for standard map
-    if (hl) params.set("hl", hl);
-    if (gl) params.set("gl", gl);
-    params.set("mapclient", "embed");
-
-    if (cid) {
-      params.set("cid", cid);
-    } else if (!(lat && lng)) {
-      console.error(
-        "CID maupun koordinat tidak dapat diekstrak. Tidak dapat membentuk link peta yang valid."
-      );
-      return null;
-    }
-
-    return `${outputBaseUrl}?${params.toString()}`;
-  } catch (error) {
-    console.error("Terjadi kesalahan saat memproses link embed:", error);
-    if (error instanceof TypeError && error.message.includes("Invalid URL")) {
-      console.error("String embedLink yang diberikan bukan URL yang valid.");
-    }
-    return null;
-  }
-}
-
-// --- DATA LOKASI (HARUSNYA DIIMPOR ATAU DARI PROPS) ---
-// Saya salin di sini untuk kemudahan, tapi sebaiknya di file terpisah
 const locationsData: LocationData[] = [
   {
     id: "kudus",
@@ -184,7 +82,6 @@ const locationsData: LocationData[] = [
     },
   },
 ];
-// --- END DATA LOKASI ---
 
 export default function Location() {
   const [selectedLocationIndex, setSelectedLocationIndex] = useState(0);
@@ -216,7 +113,7 @@ export default function Location() {
 
   const scrollDesktopList = (direction: "up" | "down") => {
     if (scrollContainerRef.current) {
-      const scrollAmount = 200; // Sesuaikan jarak scroll
+      const scrollAmount = 200;
       scrollContainerRef.current.scrollBy({
         top: direction === "up" ? -scrollAmount : scrollAmount,
         behavior: "smooth",
@@ -225,15 +122,15 @@ export default function Location() {
   };
 
   return (
-    <section className="py-12 md:py-16 bg-slate-50 w-full">
-      <div className="container mx-auto px-4 md:px-28">
-        <h2 className="text-3xl md:text-4xl font-bold text-zinc-800 mb-8 md:mb-12 text-center">
+    <section className="py-0 bg-slate-50 w-full">
+      <div className="container mx-auto max-w-[1180px]">
+        <h2 className="text-3xl md:text-4xl px-5 lg:px-0 font-bold text-zinc-800 mb-8 md:mb-12 text-center">
           Get The Closest Location
         </h2>
 
         {/* Layout Mobile */}
         <div className="md:hidden">
-          <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-lg mb-4">
+          <div className="relative w-auto lg:w-full mx-5 lg:mx-0 aspect-[4/3] rounded-xl overflow-hidden shadow-lg mb-4">
             <iframe
               key={selectedLocation.id} // Ganti key agar iframe reload saat src berubah
               src={selectedLocation.mapEmbedUrl}
@@ -302,9 +199,8 @@ export default function Location() {
           </div>
         </div>
 
-        {/* Layout Desktop */}
+        {/* Desktop */}
         <div className="hidden md:flex md:space-x-8">
-          {/* Kolom Daftar Lokasi */}
           <div className="w-1/3 lg:w-1/4 space-y-3">
             <div
               ref={scrollContainerRef}
@@ -347,8 +243,7 @@ export default function Location() {
                 </Card>
               ))}
             </div>
-            {/* Tombol scroll hanya jika item lebih banyak dari yang bisa ditampilkan (opsional) */}
-            {locationsData.length > 3 && ( // Tampilkan jika ada lebih dari 3 item, contoh
+            {locationsData.length > 3 && (
               <div className="flex justify-center space-x-2 mt-2">
                 <Button
                   variant="outline"
@@ -369,11 +264,11 @@ export default function Location() {
               </div>
             )}
           </div>
-          {/* Kolom Peta */}
+
           <div className="w-2/3 lg:w-3/4 relative">
             <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden shadow-lg">
               <iframe
-                key={selectedLocation.id + "-desktop"} // Ganti key agar iframe reload
+                key={selectedLocation.id + "-desktop"}
                 src={selectedLocation.mapEmbedUrl}
                 width="100%"
                 height="100%"
@@ -384,7 +279,8 @@ export default function Location() {
                 title={`Peta ${selectedLocation.name} Desktop`}
               ></iframe>
             </div>
-            {/* Pop-up Info di atas Peta untuk Desktop */}
+
+            {/* Pop-up Info */}
             {selectedLocation.mapInfoDesktop && (
               <div className="absolute top-2 left-2 z-10">
                 <Card className="bg-white/95 backdrop-blur-sm shadow-xl w-80 max-w-sm">

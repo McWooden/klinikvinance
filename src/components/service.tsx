@@ -1,14 +1,9 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MessageCircle } from "lucide-react"; // Icon yang mirip WhatsApp
+import BadgeWhatsapp from "./BadgeWhatsapp";
 import Image from "next/image";
 import ServiceCard from "./service-card";
 import ContactUsIllustration from "./ContactUsIllustration";
-
-// Placeholder images - ganti dengan path gambar Anda
-// const doctorImage1 = "/image/service/vector-1.png";
-// const doctorImage2 = "/image/service/vector-1.png";
-// const clinicImage = "/image/service/vector-1.png";
 
 interface serviceData {
   title: string;
@@ -57,9 +52,9 @@ export default function Service() {
   ];
 
   return (
-    <div className="w-full flex flex-col lg:px-28 justify-center p-4">
+    <div className="w-full flex flex-col justify-center mx-auto max-w-[1180px] px-5">
       {/* Header */}
-      <div className="flex gap-[20px] mb-8">
+      <div className="flex gap-[20px]">
         {/* Header Icon */}
         <div className="items-end justify-center w-[88px] lg:flex-none relative hidden lg:flex">
           <Image
@@ -76,7 +71,7 @@ export default function Service() {
             className="absolute z-10"
           />
         </div>
-        <div className="flex flex-col gap-[20px]">
+        <div className="flex flex-col lg:px-0 gap-[20px]">
           <h3 className="font-semibold text-[22px] lg:text-[36px]">
             Register to Our Services
           </h3>
@@ -87,6 +82,7 @@ export default function Service() {
           </p>
         </div>
       </div>
+
       {/* Content */}
       <div className="flex flex-wrap justify-center lg:grid gap-[26px] lg:grid-cols-3 py-5">
         {services.map((data, i) => (
@@ -118,82 +114,10 @@ function SkinSolutionCard() {
         </div>
 
         <Button className="w-full max-w-2xs bg-[#547d5e] hover:bg-[#4a6b53] text-white font-semibold py-7 px-6 rounded-full text-lg flex items-center justify-center gap-2 shadow-md cursor-pointer">
-          <MessageCircle className="w-5 h-5" />
+          <BadgeWhatsapp width={24} height={24} className="size-[unset]" />
           Contact Us
         </Button>
       </CardContent>
     </Card>
   );
 }
-
-{
-  /* Decorative dashed circles */
-}
-{
-  /* Lingkaran besar di tengah bawah */
-}
-// <div
-//   className="absolute w-48 h-48 md:w-56 md:h-56 border-2 border-dashed border-[#cde0d5] rounded-full"
-//   style={{ top: "15%", left: "50%", transform: "translate(-50%, 0)" }}
-// />
-{
-  /* Lingkaran kiri atas */
-}
-// <div
-//   className="absolute w-36 h-36 md:w-40 md:h-40 border-2 border-dashed border-[#cde0d5] rounded-full"
-//   style={{
-//     top: "0%",
-//     left: "20%",
-//     transform: "translate(-50%, -20%)",
-//   }}
-// />
-{
-  /* Lingkaran kanan atas */
-}
-// <div
-//   className="absolute w-36 h-36 md:w-40 md:h-40 border-2 border-dashed border-[#cde0d5] rounded-full"
-//   style={{
-//     top: "0%",
-//     right: "20%",
-//     transform: "translate(50%, -20%)",
-//   }}
-// />
-
-{
-  /* Images - pastikan path gambar benar dan ukurannya sesuai */
-}
-// <div className="absolute top-[10%] left-[15%] transform -translate-x-1/2 -translate-y-1/2 z-10">
-//   <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-4 border-white shadow-md">
-//     <Image
-//       src={doctorImage1}
-//       alt="Doctor consulting patient"
-//       width={96}
-//       height={96}
-//       className="object-cover w-full h-full"
-//     />
-//   </div>
-// </div>
-
-// <div className="absolute top-[10%] right-[15%] transform translate-x-1/2 -translate-y-1/2 z-10">
-//   <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-4 border-white shadow-md">
-//     <Image
-//       src={doctorImage2}
-//       alt="Doctor writing on clipboard"
-//       width={96}
-//       height={96}
-//       className="object-cover w-full h-full"
-//     />
-//   </div>
-// </div>
-
-// <div className="absolute bottom-[5%] left-1/2 transform -translate-x-1/2 translate-y-1/2 z-10">
-//   <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-4 border-white shadow-md">
-//     <Image
-//       src={clinicImage}
-//       alt="Clinic waiting room"
-//       width={96}
-//       height={96}
-//       className="object-cover w-full h-full"
-//     />
-//   </div>
-// </div>
