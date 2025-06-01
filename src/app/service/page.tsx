@@ -9,7 +9,7 @@ import ServiceCatalog from "../../components/service-page/catalog";
 
 export default function ServicePage() {
   return (
-    <div>
+    <div className="flex flex-col gap-[100px] lg:gap-[150px]">
       <ServiceCatalog />
       <Reservation className="lg:my-[150px]" />
     </div>

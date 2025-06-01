@@ -18,19 +18,19 @@ export default function ContactUsIllustration() {
           </div>
 
           <ImageCircle
-            className="w-[152px] top-[114px] right-[62px] lg:w-[132px] lg:top-[24px] lg:right-[28px]"
+            className="satu w-[114px] top-[120px] right-[90px] lg:w-[114px] lg:top-[24px] lg:right-[24px]"
             alt="Unsplash"
             src={image1}
           />
 
           <ImageCircle
-            className="w-[152px] top-[54px] left-[42px] lg:w-[132px] lg:top-[24px] lg:left-[28px]"
+            className="dua w-[114px] top-[54px] left-[53px] lg:w-[116px] lg:top-[24px] lg:left-[28px]"
             alt="Unsplash"
             src={image2}
           />
 
           <ImageCircle
-            className="w-[152px] top-[0px] right-[64px] lg:w-[132px] lg:top-[116px] lg:right-[115px]"
+            className="tiga w-[114px] top-[0px] right-[84px] lg:w-[100px] lg:top-[116px] lg:right-[129px]"
             alt="Unsplash"
             src={image3}
           />
@@ -48,7 +48,9 @@ type ImageCircleProps = {
 
 function ImageCircle({ className, alt, src }: ImageCircleProps) {
   return (
-    <div className={`absolute overflow-hidden aspect-square ${className}`}>
+    <div
+      className={`absolute overflow-hidden aspect-square rounded-full drop-shadow-[0px_14px_23px_#70C39257] ${className}`}
+    >
       <Image
         className="object-cover"
         alt={alt}

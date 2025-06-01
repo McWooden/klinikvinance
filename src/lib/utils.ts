@@ -15,6 +15,14 @@ export function extractLocationFromEmbed(embedLink: string): string | null {
       return null;
     }
 
+    const options = {
+      lat: null,
+      lng: null,
+      zoom: "15",
+      cid: null,
+      hl: "id",
+      gl: "ID",
+    };
     let lat: string | null = null;
     let lng: string | null = null;
     let zoom: string = "15"; // Default zoom

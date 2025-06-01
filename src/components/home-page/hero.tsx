@@ -45,6 +45,8 @@ function HeroImageDesktop() {
         height={552}
         alt="Background Image"
         className="w-full h-auto max-w-[453px]"
+        unoptimized
+        priority
       />
       <div className="absolute bottom-0 max-w-none">
         <Image

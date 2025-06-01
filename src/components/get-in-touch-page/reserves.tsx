@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
+import BadgeObat from "../icons/BadgeObat";
 
 export default function Reserves() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -16,13 +17,13 @@ export default function Reserves() {
   };
 
   return (
-    <div className="min-h-screen bg-emerald-50 px-4 pt-10 pb-20 sm:px-6 sm:pt-12 sm:pb-12 md:px-8 md:pt-20 md:pb-20 lg:pt-24 lg:pb-24">
+    <div className="min-h-screen bg-[#F1F9F4] px-4 pt-10 pb-20 sm:px-6 sm:pt-12 sm:pb-12 md:px-8 md:pt-20 md:pb-20 lg:pt-24 lg:pb-24">
       {" "}
       {/* Tambahkan pb-20 untuk mobile, sesuaikan untuk ukuran lain jika perlu */}
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-y-10 md:gap-x-12 lg:gap-x-20 items-start max-w-[1180px]">
         {/* Kolom Kiri */}
         <div className="space-y-4 text-left">
-          <div className="inline-flex bg-emerald-200 p-3 rounded-full mb-2">
+          <div className="inline-flex bg-[#27AE60]/10 p-3 rounded-full mb-2">
             <Image
               src="/image/getintouch/heart.png"
               width={28}
@@ -107,10 +108,10 @@ export default function Reserves() {
                 {/* Perbaikan pada Tombol Submit */}
                 <Button
                   type="submit"
-                  className="w-1/2 md:w-1/3 h-12 bg-slate-800 hover:bg-slate-700 text-white font-semibold text-base rounded-full"
+                  className="w-[156px] md:w-1/3 h-12 bg-[#1D1D1D] text-white font-semibold text-base rounded-3xl"
                   size="lg"
                 >
-                  <Stethoscope className="mr-2 h-5 w-5" /> Submit
+                  <BadgeObat height={24} className="size-[unset]" /> Submit
                 </Button>
               </form>
             </CardContent>

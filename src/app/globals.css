@@ -148,3 +148,58 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* RepeatText */
+
+/* Base styles untuk konten yang akan di-animasikan */
+.marqueeContent {
+  display: flex;
+  /* flex-shrink: 0; akan dihandle oleh CoreElement */
+  /* whitespace-nowrap: akan dihandle oleh CoreElement */
+}
+
+/* Animasi untuk marquee ke kiri */
+@keyframes marqueeLeft {
+  0% {
+    transform: translateX(0%);
+  }
+
+  /* Kita memiliki dua item identik, jadi kita translate sebesar -50% dari lebar kontainer,
+     yang setara dengan translate selebar satu item. */
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animateLeft {
+  animation-name: marqueeLeft;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  /* Durasi akan di-set melalui CSS variable dari React */
+  animation-duration: var(--marquee-duration, 20s);
+  /* Fallback duration */
+}
+
+/* Animasi untuk marquee ke kanan */
+@keyframes marqueeRight {
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animateRight {
+  animation-name: marqueeRight;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: var(--marquee-duration, 20s);
+  /* Fallback duration */
+}
+
+/* Kelas untuk pause on hover, diterapkan pada elemen yang dianimasikan */
+.pauseOnHover:hover {
+  animation-play-state: paused;
+}
