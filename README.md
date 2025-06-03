@@ -19,6 +19,10 @@
 
 ## Project Description
 
+|=================================|
+| (This is an example of changes) |
+|=================================|
+
 A modern web application for a clinic, providing comprehensive information about its services, various locations, and authentic testimonials. It features an intuitive reservation system, ensuring a seamless user experience. Built with cutting-edge web technologies, the application is designed to be fully responsive and user-friendly across all devices.
 
 ## Key Features
